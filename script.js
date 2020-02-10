@@ -4,23 +4,17 @@ function startMessage() {
 }
 
 // renders and displays the data
-function displayData() {
-	for (let i = 0; i < textAreaArray.length; i++) {
-		let count = i;
-		$('.js-display').append(`
-		<table>
-			<tr>
-				<th>Productivity</th>
-				<th>AIQ</th>
-				<th>Attainment</th>
-			</tr>
-			<tr>
-				<td>${count}</td>
-				<td>${count}</td>
-				<td>${count}</td>
-			</tr>
-		</table>
-		`);
+function displayTotalKeywordCount() {
+	$('#js-totalCount').append(`${Object.keys(textObj).length}`);
+}
+
+function displayHighFeqWords() {
+	for (let i = 0; i < sortedKeywords.length; i++) {
+		// set for how many results we want
+		if (i < 10) {
+			$('#js-highWords').append(`<li>${sortedKeywords[i]}</li>`);
+		}
+		// $('#js-highWords').append(`<li>${sortedKeywords[i]}</li>`);
 	}
 }
 
@@ -35,13 +29,19 @@ function getForm() {
 		// clearDisplay();
 		e.preventDefault();
 		grabText();
+		textObj = {};
 		console.log('Form submitted');
 		console.log(textAreaArray);
-		textToObject();
-		console.log(textObj);
+		// textToObject();
+
 		// console.log(keys(textCount));
 		// displayData();
 		clearTextArea();
+		countKeywords();
+		console.log(textObj);
+		displayTotalKeywordCount();
+		sortObj();
+		displayHighFeqWords();
 	});
 }
 
@@ -50,15 +50,41 @@ function clearDisplay() {
 	$('.js-display').empty();
 }
 
+// clears text area
 function clearTextArea() {
 	$('#textData').val('');
 }
 
+function sortObj() {
+	const keywordFound = Object.keys(textObj);
+	sortedKeywords = keywordFound.sort((a, b) => {
+		if (textObj[a] < textObj[b]) {
+			return 1;
+		} else {
+			return -1;
+		}
+	});
+	console.log(sortedKeywords);
+}
 // changes array to obj
-function textToObject() {
+// function textToObject() {
+// 	for (let i = 0; i < textAreaArray.length; i++) {
+// 		let value = textAreaArray[i];
+// 		textObj[value] = (textObj[value] || 0) + 1;
+// 	}
+// }
+
+// counts the total keywords found
+function countKeywords() {
 	for (let i = 0; i < textAreaArray.length; i++) {
-		let num = textAreaArray[i];
-		textObj[num] = (textObj[num] || 0) + 1;
+		const word = textAreaArray[i];
+		if (word in keywords) {
+			if (word in textObj) {
+				textObj[word]++;
+			} else {
+				textObj[word] = 1;
+			}
+		}
 	}
 }
 
