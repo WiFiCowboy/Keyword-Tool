@@ -105,7 +105,7 @@ textarea {
 
 @-moz-document url-prefix() {
 	.js-form {
-		padding-top: 100px;
+		padding-top: 120px;
 	}
 	input.allBtn {
 		margin-top: 20px;
