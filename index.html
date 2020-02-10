@@ -4,38 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Keyword Tool</title>
-  <script src="style.css"></script>
+  <title>K.A.T.</title>
+  <link rel="stylesheet" href="style.css">
+  <link
+      href="https://fonts.googleapis.com/css?family=Luckiest+Guy|Roboto&display=swap"
+      rel="stylesheet"
+    />
 </head>
 <body>
   <main>
     <section class="header">
-      <h1>Keyword Tool</h1>
+      <h1>Keyword Assist Tool</h1>
     </section>
-    <section class="displayFormData">
-      <h2>form data to be displayed here</h2>
-    </section>
+    <!-- future use -->
+    <!-- <section class="displayFormData">
+    </section> -->
     <section class="display-wrapper">
-      <div class="js-display">
+      <div class="js-display addClass">
         <ul>
-          <li>Total Keywords found <span id="js-totalCount"></span></li>
-          <li>High Frequency Keywords
+          <li>Total Keywords in Document<span id="js-totalCount"></span></li>
+          <li>Rank and Frequency of Keywords in Document:
             <ol id='js-highWords'>
-              
-          </ol>
+            </ol>
         </li>
-        <li>Performance keywords found <span></span></li>
-        </ul>
+        <!-- future use  -->
+        <!-- <li>Performance keywords found <span></span></li> -->
+        </ul >
       </div>
     </section>
     <section class="form">
       <form class="js-form">
-        <label for="textData">Text to scan</label><br>
-        <textarea name="textData" cols="80" rows="40" id="textData" placeholder="paste document here"></textarea><br>
-        <input type="submit" value="Submit">
+        <label for="textData">Input Text</label><br>
+        <textarea name="textData" cols="80" rows="40" id="textData" placeholder="place text here" required></textarea><br>
+        <input class="allBtn"type="submit" value="Submit">
       </form>
     </section>
-
+    <button class="removeClass js-reset allBtn">Reset</button>
   </main>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

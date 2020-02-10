@@ -3,18 +3,23 @@ function startMessage() {
 	console.log('Script Connected!');
 }
 
-// renders and displays the data
+// resets and renders and displays the data
 function displayTotalKeywordCount() {
-	$('#js-totalCount').append(`${Object.keys(textObj).length}`);
+	$('#js-totalCount').empty();
+	$('#js-totalCount').append(` = ${Object.keys(textObj).length}`);
 }
 
 function displayHighFeqWords() {
+	$('#js-highWords').empty();
 	for (let i = 0; i < sortedKeywords.length; i++) {
 		// set for how many results we want
-		if (i < 10) {
-			$('#js-highWords').append(`<li>${sortedKeywords[i]}</li>`);
-		}
-		// $('#js-highWords').append(`<li>${sortedKeywords[i]}</li>`);
+		// if (i < ) {
+		$('#js-highWords').append(
+			`<li class="orderListItem" >${sortedKeywords[i].toUpperCase()} = <span>${textObj[
+				sortedKeywords[i]
+			]}</span></li>`
+		);
+		// }
 	}
 }
 
@@ -26,22 +31,16 @@ function grabText() {
 // handles form submit
 function getForm() {
 	$('form').submit((e) => {
-		// clearDisplay();
 		e.preventDefault();
-		grabText();
 		textObj = {};
-		console.log('Form submitted');
-		console.log(textAreaArray);
-		// textToObject();
-
-		// console.log(keys(textCount));
-		// displayData();
+		grabText();
 		clearTextArea();
 		countKeywords();
-		console.log(textObj);
+		// console.log(textObj);
 		displayTotalKeywordCount();
 		sortObj();
 		displayHighFeqWords();
+		turnOnClass();
 	});
 }
 
@@ -55,6 +54,7 @@ function clearTextArea() {
 	$('#textData').val('');
 }
 
+// Sorts object
 function sortObj() {
 	const keywordFound = Object.keys(textObj);
 	sortedKeywords = keywordFound.sort((a, b) => {
@@ -64,15 +64,8 @@ function sortObj() {
 			return -1;
 		}
 	});
-	console.log(sortedKeywords);
+	// console.log('sorted key words', sortedKeywords);
 }
-// changes array to obj
-// function textToObject() {
-// 	for (let i = 0; i < textAreaArray.length; i++) {
-// 		let value = textAreaArray[i];
-// 		textObj[value] = (textObj[value] || 0) + 1;
-// 	}
-// }
 
 // counts the total keywords found
 function countKeywords() {
@@ -88,10 +81,27 @@ function countKeywords() {
 	}
 }
 
-// controls app
+function turnOnClass() {
+	$('form').addClass('addClass');
+	$('.js-display').removeClass('addClass');
+	$('button').removeClass('removeClass');
+}
+
+function resetButton() {
+	$('.js-reset').click(function() {
+		$('#js-highWords').empty();
+		$('#js-totalCount').empty();
+		$('form').removeClass('addClass');
+		$('button').addClass('removeClass');
+		$('.js-display').addClass('addClass');
+	});
+}
+
+// Start app on page load
 function masterControl() {
 	startMessage();
 	getForm();
+	resetButton();
 }
 
 $(masterControl);

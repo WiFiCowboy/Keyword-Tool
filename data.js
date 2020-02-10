@@ -28,6 +28,7 @@ let textAreaArray = [];
 
 let textObj = {};
 
-let keywordCount = 0;
+// test case use
+// let keywordCount = 0;
 
 let sortedKeywords = [];

@@ -1,0 +1,104 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+body {
+	/* color: black; */
+	font-family: "Roboto", sans-serif;
+	width: 100%;
+	height: 100%;
+	color: white;
+	background-color: #121212;
+}
+
+.header {
+	width: 100%;
+	background-color: #067ab4;
+	color: #ffffff;
+	opacity: 87%;
+}
+
+label {
+	font-size: 22px;
+	font-weight: 900;
+}
+
+section {
+	padding: 10px;
+}
+
+.js-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	text-align: center;
+	font-size: 16px;
+	font-weight: 300;
+	font-family: "Roboto", sans-serif;
+	width: 60%;
+	height: 70vh;
+	margin: 0 auto;
+}
+
+input {
+	background-color: rgb(141, 201, 81);
+	font-weight: 900;
+}
+
+button.allBtn {
+	background-color: rgb(199, 65, 65);
+	font-weight: 900;
+	width: 20%;
+}
+
+.allBtn {
+	font-size: 22px;
+	width: 50%;
+	height: 40px;
+	margin: auto;
+	border-radius: 3px 3px 3px 3px;
+	border-style: none;
+	color: #121212;
+	opacity: 87%;
+}
+
+ul {
+	list-style: none;
+}
+
+ul > li {
+	padding: 5px;
+	color: #ffffff;
+	opacity: 87%;
+}
+
+ol {
+	padding: 10px;
+}
+
+.orderListItem {
+	margin: auto;
+	width: 200px;
+	text-align: left;
+	padding: 5px;
+	color: #ffffff;
+	opacity: 87%;
+}
+
+textarea {
+	font-size: 16px;
+	border: 1px solid black;
+	border-radius: 5px 5px 5px 5px;
+	padding: 5px;
+}
+
+.addClass {
+	display: none;
+}
+
+.removeClass {
+	display: none;
+}
