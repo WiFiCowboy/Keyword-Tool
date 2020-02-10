@@ -102,3 +102,12 @@ textarea {
 .removeClass {
 	display: none;
 }
+
+@-moz-document url-prefix() {
+	.js-form {
+		padding-top: 100px;
+	}
+	input.allBtn {
+		margin-top: 20px;
+	}
+}
