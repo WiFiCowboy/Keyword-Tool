@@ -59,8 +59,12 @@ function displayHighFeqWords() {
 
 // grabs data from text area, stores as string
 function grabText() {
-	textAreaArray = $('#textData').val().toLowerCase().trim().split(' ');
+	textAreaArray = $('#textData').val().toLowerCase().replace(/,/g, ' ').trim().split(' ');
 }
+
+// function removeCharecter() {
+// 	textAreaArray.re
+// }
 
 // handles form submit
 function getForm() {
