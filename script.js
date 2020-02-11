@@ -1,5 +1,3 @@
-const testString = 'connected to data.js';
-
 const keywords = {
 	'all in quality': true,
 	'all-in-quality': true,
