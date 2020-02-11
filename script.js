@@ -62,10 +62,6 @@ function grabText() {
 	textAreaArray = $('#textData').val().toLowerCase().replace(/,/g, ' ').trim().split(' ');
 }
 
-// function removeCharecter() {
-// 	textAreaArray.re
-// }
-
 // handles form submit
 function getForm() {
 	$('form').submit((e) => {
